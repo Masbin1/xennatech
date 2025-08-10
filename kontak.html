@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontak - Xennatech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="antialiased">
+
+  <div id="header-placeholder"></div>
+  <script src="js/header.js"></script>
+
+  <main class="pt-24">
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Hubungi Kami</h1>
+        <p class="text-gray-600 mb-6">Ingin konsultasi atau demo? Isi form di bawah dan tim kami akan menghubungi Anda dalam 1x24 jam kerja.</p>
+        <form id="contactForm" class="space-y-4 text-left">
+          <div>
+            <label class="text-sm text-gray-700">Nama</label>
+            <input id="name" type="text" required class="w-full mt-1 border border-gray-300 rounded-lg p-3" placeholder="Nama Anda">
+          </div>
+          <div>
+            <label class="text-sm text-gray-700">Email</label>
+            <input id="email" type="email" required class="w-full mt-1 border border-gray-300 rounded-lg p-3" placeholder="email@contoh.com">
+          </div>
+          <div>
+            <label class="text-sm text-gray-700">Pesan</label>
+            <textarea id="message" rows="5" required class="w-full mt-1 border border-gray-300 rounded-lg p-3" placeholder="Tuliskan kebutuhan Anda..."></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Kirim Pesan</button>
+          </div>
+        </form>
+        <p id="formResult" class="text-sm text-green-600 mt-4 hidden">Terima kasih! Pesan Anda telah terkirim.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/footer.js"></script>
+
+  <script>
+    // simple front-end handler (replace with backend API in production)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // basic validation (already required attributes)
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) return alert('Mohon lengkapi semua kolom.');
+
+      // simulate sending
+      setTimeout(() => {
+        document.getElementById('formResult').classList.remove('hidden');
+        // clear form
+        document.getElementById('contactForm').reset();
+      }, 700);
+    });
+  </script>
+
+</body>
+</html>
